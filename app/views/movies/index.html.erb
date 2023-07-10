@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%= stylesheet_link_tag 'movies.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="movies-page">
+      <div class="header">
+        <a href="/home">
+          <img
+            src="https://res.cloudinary.com/dsiyffj0o/image/upload/v1688446827/IMDb_Internet_Movie_Database_xur1ka.png"
+            alt="logo"
+            class="home-logo"
+        /></a>
+        <div class="login-page-container">
+          <button class="login-a" id="login-a"></button>
+        </div>
+      </div>
+      <div class="movie-data-container">
+        <div class="movie-data">
+          <h1 class="movie-title">Spider Man</h1>
+          <img
+            src="https://res.cloudinary.com/dsiyffj0o/image/upload/v1688536275/spiderbroad_vjihdj.jpg"
+            alt="movie-image"
+            class="movie-image"
+          />
+          <div class="details-container">
+            <div class="genre">
+              <h4 class="details-head">Genre:</h4>
+              <p class="description">Action</p>
+              <p class="description">Adventure</p>
+              <p class="description">Thriller</p>
+            </div>
+            <div class="duration-year">
+              <h4 class="details-head">Release Year:</h4>
+              <p class="description">2016</p>
+              <h4 class="details-head">Duration:</h4>
+              <p class="description">2h 12m</p>
+            </div>
+          </div>
+          <div class="director-actors">
+            <h4 class="details-head">
+              Director: <span class="description">Sam Raimi</span>
+            </h4>
+            <h4 class="details-head">
+              Actors:
+              <span class="description">Tobey Meguire, Kirsten Dunst</span>
+            </h4>
+          </div>
+          <div class="summary">
+            <h4 class="details-head">Summary:</h4>
+            <p class="summary-desc">
+              Average teenager Peter Parker is transformed into an extraordinary
+              super hero after he is accidentally bitten by a radioactive
+              spider. When his beloved uncle is savagely murdered during a
+              robbery, young Peter vows to use his powers to avenge his death.
+            </p>
+          </div>
+        </div>
+        <div class="actors-container">
+          <h4 class="details-head">Cast:</h4>
+          <div class="actots-image-container">
+            <a class="actor" href="./actors.html">
+              <img
+                src="https://res.cloudinary.com/dsiyffj0o/image/upload/v1688555512/Tobey_Maguire_2014_tkxv6u.jpg"
+                alt="actor-image"
+                class="actor-image"
+              />
+              <p class="actor-name">Tobey Meguire</p>
+            </a>
+            <a class="actor" href="./actors.html">
+              <img
+                src="https://res.cloudinary.com/dsiyffj0o/image/upload/v1688556172/Kirsten_Dunst_Cannes_2016_c3bqdc.jpg"
+                alt="actor-image"
+                class="actor-image"
+              />
+              <p class="actor-name">Kirsten Dunst Cannes</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= javascript_include_tag 'movies.js', 'data-turbolinks-track': 'reload' %>
+  </body>
+</html>

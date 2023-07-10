@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+  height: 100vh;
+}
+
+.movies-page .header {
+  display: flex;
+  justify-content: space-between;
+}
+.movies-page .header .home-logo {
+  width: 30%;
+}
+.movies-page .header .login-page-container {
+  margin-top: 14px;
+  margin-right: 1rem;
+}
+.movies-page .header .login-a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 28px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.movies-page .movie-data-container .movie-data {
+  color: #fff;
+  margin: 1rem;
+}
+.movies-page .movie-data-container .movie-data .movie-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.movies-page .movie-data-container .movie-data .movie-image {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 1rem;
+}
+.movies-page .movie-data-container .movie-data .details-container {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 2rem;
+}
+.movies-page
+  .movie-data-container
+  .movie-data
+  .details-container
+  .genre
+  .details-head {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 0.5rem;
+}
+.movies-page
+  .movie-data-container
+  .movie-data
+  .details-container
+  .genre
+  .description {
+  color: #a7c7b6;
+  font-size: 18px;
+  margin-bottom: 0.3rem;
+}
+.movies-page
+  .movie-data-container
+  .movie-data
+  .details-container
+  .duration-year
+  .details-head {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 0.5rem;
+}
+.movies-page
+  .movie-data-container
+  .movie-data
+  .details-container
+  .duration-year
+  .description {
+  color: #a7c7b6;
+  font-size: 18px;
+  margin-bottom: 0.3rem;
+}
+.movies-page .movie-data-container .movie-data .director-actors .details-head {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 0.5rem;
+}
+.movies-page .movie-data-container .movie-data .director-actors .description {
+  color: #a7c7b6;
+  font-size: 18px;
+  margin-bottom: 0.3rem;
+}
+.movies-page .movie-data-container .movie-data .summary .details-head {
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 0.5rem;
+}
+.movies-page .movie-data-container .movie-data .summary .summary-desc {
+  color: #a7c7b6;
+  font-size: 16px;
+}
+.movies-page .actors-container {
+  color: #fff;
+  margin-left: 1rem;
+}
+.movies-page .actors-container .details-head {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 0.5rem;
+}
+.movies-page .actors-container .actots-image-container .actor {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+.movies-page .actors-container .actots-image-container .actor .actor-image {
+  margin-right: 1rem;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.movies-page .actors-container .actots-image-container .actor .actor-name {
+  color: #a7c7b6;
+  font-size: 18px;
+  margin-bottom: 0.3rem;
+}
+
+@media screen and (min-width: 768px) {
+  .movies-page {
+    margin-top: 1rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+  .movies-page .header .home-logo {
+    width: 16%;
+  }
+  .movies-page .movie-data-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .movies-page .movie-data-container .movie-data .movie-title {
+    font-size: 40px;
+  }
+  .movies-page .movie-data-container .movie-data .movie-image {
+    width: 100%;
+    height: 400px;
+  }
+  .movies-page .movie-data-container .movie-data .details-container {
+    margin-left: 6rem;
+    margin-right: 6rem;
+  }
+  .movies-page .movie-data-container .movie-data .director-actors {
+    margin-left: 6rem;
+    margin-right: 6rem;
+    margin-top: 2rem;
+  }
+  .movies-page .movie-data-container .movie-data .summary {
+    margin-left: 6rem;
+    margin-right: 6rem;
+    margin-top: 2rem;
+  }
+  .movies-page .actors-container {
+    margin-left: 7rem;
+    margin-right: 6rem;
+    margin-top: 2rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .movies-page {
+    margin-top: 1rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+  }
+  .movies-page .header .home-logo {
+    width: 10%;
+  }
+} /*# sourceMappingURL=movies.css.map */

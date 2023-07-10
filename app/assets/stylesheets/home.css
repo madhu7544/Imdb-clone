@@ -73,7 +73,12 @@ body {
   text-decoration: none;
   color: #fff;
 }
-.home-page .movies-container .movies-page .each-movie .movie-anchor .movie-image {
+.home-page
+  .movies-container
+  .movies-page
+  .each-movie
+  .movie-anchor
+  .movie-image {
   width: 150px;
   height: 180px;
   border-radius: 4px;
@@ -81,12 +86,24 @@ body {
 .home-page .movies-container .movies-page .each-movie .movie-anchor .content {
   margin-left: 0.5rem;
 }
-.home-page .movies-container .movies-page .each-movie .movie-anchor .content .movie-title {
+.home-page
+  .movies-container
+  .movies-page
+  .each-movie
+  .movie-anchor
+  .content
+  .movie-title {
   margin-bottom: 1rem;
   font-weight: bold;
   font-size: 20px;
 }
-.home-page .movies-container .movies-page .each-movie .movie-anchor .content .movie-rating {
+.home-page
+  .movies-container
+  .movies-page
+  .each-movie
+  .movie-anchor
+  .content
+  .movie-rating {
   font-weight: bold;
 }
 
@@ -109,7 +126,12 @@ body {
   .home-page .movies-container .movies-header {
     margin-left: 1rem;
   }
-  .home-page .movies-container .movies-page .each-movie .movie-anchor .movie-image {
+  .home-page
+    .movies-container
+    .movies-page
+    .each-movie
+    .movie-anchor
+    .movie-image {
     width: 200px;
     height: 250px;
   }
@@ -149,8 +171,13 @@ body {
   .home-page .movies-container .movies-header {
     margin-left: 1rem;
   }
-  .home-page .movies-container .movies-page .each-movie .movie-anchor .movie-image {
+  .home-page
+    .movies-container
+    .movies-page
+    .each-movie
+    .movie-anchor
+    .movie-image {
     width: 300px;
     height: 320px;
   }
-}/*# sourceMappingURL=home.css.map */
+} /*# sourceMappingURL=home.css.map */

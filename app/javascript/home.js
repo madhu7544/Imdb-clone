@@ -173,7 +173,6 @@ const passwordEmail = (cookieValue) => {
 };
 
 const token = passwordEmail("token");
-console.log(token);
 
 if (token == "false") {
   loginLogout.innerText = "Login";
