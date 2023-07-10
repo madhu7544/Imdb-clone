@@ -182,10 +182,10 @@ if (token == "false") {
 loginLogout.addEventListener("click", () => {
   if (token === "false") {
     loginLogout.innerText = "Login";
-    window.location.href = "/login.html";
+    window.location.href = "/login";
   } else {
     loginLogout.innerText = "Logout";
-    window.location.href = "/home.html";
+    window.location.href = "/home";
     document.cookie = "token=false; expires=Thu, 1 Jan 2024 00:00:00 UTC";
   }
 });

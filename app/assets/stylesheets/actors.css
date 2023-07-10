@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+  height: 100vh;
+}
+
+.actors-container .header {
+  display: flex;
+  justify-content: space-between;
+}
+.actors-container .header .home-logo {
+  width: 30%;
+}
+.actors-container .header .login-page-container {
+  margin-top: 14px;
+  margin-right: 1rem;
+}
+.actors-container .header .login-a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 28px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.actors-container .actors-data {
+  margin: 1rem;
+  color: #fff;
+}
+.actors-container .actors-data .profile-info #profile-name {
+  margin-bottom: 1rem;
+}
+.actors-container .actors-data .profile-info #profile-bio {
+  line-height: 1.4;
+  margin-top: 1rem;
+}
+.actors-container .actors-data .profile-image {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.actors-container .actors-data .profile-image #profile-photo {
+  width: 40%;
+  border-radius: 10px;
+}
+.actors-container .acted-head {
+  color: #fff;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.actors-container #acted-movies-list {
+  color: #fff;
+  margin-left: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .actors-container .header {
+    margin-right: 2rem;
+  }
+  .actors-container .header .home-logo {
+    width: 16%;
+  }
+  .actors-container .actors-data {
+    margin-left: 6rem;
+    margin-right: 6rem;
+  }
+  .actors-container .actors-data .profile-image {
+    justify-content: flex-start;
+  }
+  .actors-container .actors-data .profile-image .nameData {
+    margin: 6rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .actors-container {
+    margin-top: 1rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+  }
+  .actors-container .header {
+    margin-right: 2rem;
+    margin-top: 1rem;
+  }
+  .actors-container .header .home-logo {
+    width: 10%;
+  }
+} /*# sourceMappingURL=actors.css.map */

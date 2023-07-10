@@ -1,4 +1,4 @@
-let data = [
+let newdata = [
     {
       id: 1,
       image:
