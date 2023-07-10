@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%= stylesheet_link_tag 'home.css' %>
+    <title>IMDb</title>
+  </head>
+  <body>
+    <div class="home-page">
+      <div class="header">
+        <a href="/home">
+          <img
+            src="https://res.cloudinary.com/dsiyffj0o/image/upload/v1688446827/IMDb_Internet_Movie_Database_xur1ka.png"
+            alt="logo"
+            class="home-logo"
+        /></a>
+        <div class="login-page-container">
+          <button class="login-a" id="login"></button>
+        </div>
+      </div>
+      <div class="filter-container">
+        <div class="search-form">
+          <input
+            type="search"
+            placeholder="Search"
+            class="search-input"
+            id="inputSearch"
+          />
+          <button class="search-btn" id="searchBtn">Search</button>
+        </div>
+        <div>
+          <label class="label">Filter By:</label><br/>
+          <select id="selectOption" class="select-option">
+            <option value="all">All</option>
+            <option value="genre">Genre</option>
+            <option value="release-year">Release Year</option>
+            <option value="rating">Rating</option>
+          </select>
+          <div id="genreFilter" style="display: none">
+            <label class="label">Genre:</label><br/>
+            <select id="selectGenre" class="select-option">
+              <option value="all">All</option>
+              <option value="Family">Family</option>
+              <option value="Action">Action</option>
+              <option value="Drama">Drama</option>
+              <option value="Thriller">Thriller</option>
+              <option value="Crime">Crime</option>
+              <option value="Sci-fi">Sci-fi</option>
+            </select>
+          </div>
+          <div id="yearFilter" style="display: none">
+            <label class="label">Year:</label><br/>
+            <select id="selectYear" class="select-option">
+              <option value="all">All</option>
+              <option value="2018">2018</option>
+              <option value="2016">2016</option>
+              <option value="2013">2013</option>
+              <option value="2012">2012</option>
+              <option value="1972">1972</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="movies-container">
+        <h1 class="movies-header">Movies:</h1>
+        <ul class="movies-page" id="moviesPage"></ul>
+      </div>
+    </div>
+    <%= javascript_include_tag 'home.js' %>
+  </body>
+</html>
