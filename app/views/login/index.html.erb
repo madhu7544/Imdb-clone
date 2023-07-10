@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <%= stylesheet_link_tag 'login.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="login-container">
+      <img
+        src="https://res.cloudinary.com/dsiyffj0o/image/upload/v1688446827/IMDb_Internet_Movie_Database_xur1ka.png"
+        alt="logo"
+        class="logo"
+      />
+      <div class="form-container">
+        <form method="post" id="log-in-form">
+          <h1 class="header">Sign in</h1>
+          <div class="login-form">
+            <label for="email">Email: </label><br />
+            <input type="text" placeholder="Enter Email" name="email" />
+            <p id="email-error"></p>
+            <label for="password">Password: </label>
+            <br />
+            <input
+              type="password"
+              placeholder="Enter Password"
+              name="password"
+            />
+            <p id="error-password"></p>
+            <button type="submit" class="login-btn">Sign In</button>
+          </div>
+        </form>
+        <div class="sign-up">
+          <label>------New to Imdb------</label><br />
+          <a href="/signup"
+            ><button class="sign-up-btn">Create a New Account</button></a
+          >
+        </div>
+      </div>
+    </div>
+    <div id="snackbar" class="snackbar"></div>
+     <%= javascript_include_tag 'login.js', 'data-turbolinks-track': 'reload'%>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <%= stylesheet_link_tag 'signup.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="login-container">
+      <img
+        src="https://res.cloudinary.com/dsiyffj0o/image/upload/v1688446827/IMDb_Internet_Movie_Database_xur1ka.png"
+        alt="logo"
+        class="logo"
+      />
+      <div class="form-container">
+        <form method="post" id="signUpForm">
+          <h1 class="header">Sign Up</h1>
+          <div class="login-form">
+            <label for="email">Name: </label><br />
+            <input
+              type="text"
+              placeholder="First Name and Last Name"
+              name="name"
+            />
+            <p id="errorName"></p>
+            <label for="email">Email: </label><br />
+            <input type="text" placeholder="Enter Email" name="email" />
+            <p id="errorEmail"></p>
+            <label for="password">Password: </label>
+            <br />
+            <input
+              type="password"
+              placeholder="Enter Password"
+              name="password"
+            />
+            <p id="errorPassword"></p>
+            <label for="password">Re-enter Password: </label>
+            <br />
+            <input
+              type="password"
+              placeholder="Re-enter Password"
+              name="re-password"
+            />
+            <p id="errorRePassword"></p>
+            <button type="submit" class="sign-up-btn">
+              Create Your Account
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="snackbar" class="snackbar"></div>
+    <%= javascript_include_tag 'signup.js', 'data-turbolinks-track': 'reload'%>
+  </body>
+</html>
