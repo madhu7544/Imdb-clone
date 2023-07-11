@@ -100,6 +100,11 @@ const filterDataOption = (selectOption, selected) => {
       moviesData(each);
     });
   } else if (selectOption === "genre") {
+    if (selected === "all" || selected === undefined) {
+      data.map((each) => {
+        moviesData(each);
+      });
+    }
     const filteredData = data.filter((movie) => {
       if (movie.genre.includes(selected)) {
         return true;
@@ -110,6 +115,11 @@ const filterDataOption = (selectOption, selected) => {
       moviesData(each);
     });
   } else if (selectOption === "release-year") {
+    if (selected === "all" || selected === undefined) {
+      data.map((each) => {
+        moviesData(each);
+      });
+    }
     const filteredData = data.filter((movie) => {
       if (movie.year == selected) {
         return true;

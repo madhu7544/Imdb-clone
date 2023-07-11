@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  director: MyString
+  genre: MyString
+  releasedate: 2023-07-11
+  producer: MyString
+  duration: 2023-07-11 16:25:19
+  description: MyString
+
+two:
+  title: MyString
+  director: MyString
+  genre: MyString
+  releasedate: 2023-07-11
+  producer: MyString
+  duration: 2023-07-11 16:25:19
+  description: MyString
