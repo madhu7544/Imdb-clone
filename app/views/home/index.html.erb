@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <%= stylesheet_link_tag 'home.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track'=> 'reload' %>
     <title>IMDb</title>
   </head>
   <body>
@@ -67,6 +67,6 @@
         <ul class="movies-page" id="moviesPage"></ul>
       </div>
     </div>
-    <%= javascript_include_tag 'home.js', 'data-turbolinks-track': 'reload'%>
+    <%= javascript_include_tag 'home', 'data-turbolinks-track'=> 'reload'%>
   </body>
 </html>

@@ -54,7 +54,6 @@ let data = [
     genre: ["Thriller", "Action"],
   },
 ];
-
 const moviesPage = document.getElementById("moviesPage");
 const searchInput = document.getElementById("inputSearch");
 const searchButton = document.getElementById("searchBtn");
@@ -162,7 +161,7 @@ selectOption.addEventListener("change", () => {
 const loginLogout = document.getElementById("login");
 
 const dataFromCookie = document.cookie;
-console.log(dataFromCookie);
+
 const passwordEmail = (cookieValue) => {
   const cookies = dataFromCookie.split("; ");
   const cookie = cookies.find((each) => each.startsWith(`${cookieValue}=`));
