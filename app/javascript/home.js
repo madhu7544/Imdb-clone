@@ -63,7 +63,7 @@ const moviesData = (each) => {
   const liElement = document.createElement("li");
   liElement.classList.add("each-movie");
   liElement.innerHTML = `
-      <a class="movie-anchor" href="/movies">
+      <a class="movie-anchor" href="/movies/${each.id}">
         <img class="movie-image" src="${each.image}">
         <div class="content">
           <h3 class="movie-title">${each.title}</h3>
