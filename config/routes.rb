@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/actors', to: "actors#index"
   get '/login', to: "login#index"
   get '/signup', to: "signup#index"
+  get '/addmovie', to: "addmovie#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

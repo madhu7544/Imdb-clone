@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <%= stylesheet_link_tag 'addmovie', media: 'all', 'data-turbolinks-track'=> 'reload' %>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="add-movie">
+      <div class="header">
+        <a href="/home">
+          <img
+            src="https://res.cloudinary.com/dsiyffj0o/image/upload/v1688446827/IMDb_Internet_Movie_Database_xur1ka.png"
+            alt="logo"
+            class="home-logo"
+        /></a>
+        <div class="login-page-container">
+          <button class="login-a" id="login">Login</button>
+        </div>
+      </div>
+      <div class="form-data">
+        <form>
+          <label>Title:</label><br />
+          <input type="text" id="title" placeholder="Title" /><br />
+          <label>Poster:</label><br />
+          <input type="file" id="poster" /><br />
+          <label>Genre:</label><br />
+          <input type="text" id="genre" placeholder="Genre" /><br />
+          <label>Director:</label><br />
+          <input type="text" id="director" placeholder="Director" /><br />
+          <label>Duration:</label><br />
+          <input type="text" id="director" placeholder="Duration" /><br />
+          <label>Description:</label><br />
+          <input type="text" id="director" placeholder="Description" /><br />
+        </form>
+        <button type="button" id="submitMovie">Submit</button>
+      </div>
+    </div>
+    <%# <%= javascript_include_tag 'addmovie', 'data-turbolinks-track'=> 'reload' %> 
+  </body>
+</html>

@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: black;
+    color: #fff;
+    height: 100vh;
+  }
+  .add-movie {
+    .header {
+      display: flex;
+      justify-content: space-between;
+      .home-logo {
+        width: 30%;
+      }
+      .login-page-container {
+        margin-top: 14px;
+        margin-right: 1rem;
+      }
+      .login-a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 28px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    }
+    .form-data {
+      margin: 1rem;
+      label {
+        font-weight: bold;
+      }
+      input {
+        margin-bottom: 1rem;
+        padding-left: 5px;
+        height: 28px;
+        width: 100%;
+      }
+      #submitMovie {
+        width: 100px;
+        height: 28px;
+        background-color: #e6c925;
+        cursor: pointer;
+        border-radius: 3px;
+        border: none;
+        font-weight: bold;
+      }
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .add-movie {
+      margin-top: 1rem;
+      margin-left: 4rem;
+      margin-right: 4rem;
+      .header {
+        .home-logo {
+          width: 16%;
+        }
+      }
+      .form-data {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        label {
+          font-size: 22px;
+          margin-bottom: 0.6rem;
+        }
+        input {
+          height: 35px;
+          width: 100%;
+        }
+        #submitMovie {
+          width: 150px;
+          height: 35px;
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    .add-movie {
+      margin-top: 1rem;
+      margin-left: 8rem;
+      margin-right: 8rem;
+      .header {
+        .home-logo {
+          width: 10%;
+        }
+      }
+      .form-data {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 4rem;
+        label {
+          font-size: 22px;
+          margin-bottom: 0.6rem;
+        }
+        input {
+          height: 40px;
+          width: 60%;
+        }
+        #submitMovie{
+          width:150px;
+          height: 40px;
+      }
+      }
+    }
+  }
