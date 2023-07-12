@@ -73,20 +73,6 @@ signUpData.addEventListener("submit", function (event) {
       })
       .catch((error) => {
         console.log(error);
-        // Handle network errors
-        // Display error messages to the user
       });
   }
 });
-
-// let snackbar = document.getElementById("snackbar");
-//     snackbar.innerHTML = "Successfully Signup";
-//     snackbar.classList.add("show");
-//     setTimeout(function () {
-//       snackbar.classList.remove("show");
-//       window.location.href = "/login.html";
-//     }, 3000);
-
-// document.cookie = `name= ${name}; expires=Thu, 1 Dec 2024 12:00:00 UTC;`;
-// document.cookie = `email=${email}; expires=Thu, 1 Dec 2024 12:00:00 UTC;`;
-// document.cookie = `password=${password}; expires=Thu, 1 Dec 2024 12:00:00 UTC;`;
