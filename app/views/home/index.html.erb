@@ -64,9 +64,21 @@
       </div>
       <div class="movies-container">
         <h1 class="movies-header">Movies:</h1>
-        <ul class="movies-page" id="moviesPage"></ul>
+        <ul class="movies-page" id="moviesPage">
+          <%= @movies.each do |each|%>
+            <li class="each-movie">
+              <%= link_to movies_path(each.id), class: "movie-anchor" do %>
+              <%= image_tag each.poster, class: "movie-image" %>
+                <div class="content">
+                  <h3 class="movie-title"><%= each.title %></h3>
+                  <p class="movie-rating">Ratings: <%= each.director%></p>
+                </div>
+            <% end %>
+            </li>
+          <%end%>
+          </ul>
       </div>
     </div>
-    <%= javascript_include_tag 'home', 'data-turbolinks-track'=> 'reload'%>
+    <%= javascript_include_tag 'home', 'data-turbolinks-track'=> 'reload' %>
   </body>
 </html>

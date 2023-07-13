@@ -5,17 +5,16 @@ class AddmovieController < ApplicationController
   end
 
   def create
-    @movie = Movie.new(movie_params)
+    @movie = Movie.new
     @movie.title=params[:title]
     @movie.poster=params[:poster]
     @movie.genre=params[:genre]
     @movie.director=params[:director]
     @movie.duration=params[:duration]
     @movie.description=params[:description]
-    @movie.releasedate = params[:releasedate]
+    @movie.releasedate = params[:releaseDate]
     @movie.producer=params[:producer]
-    @movie.castcrew = params[:castcrew]
-    puts movie
+    @movie.castcrew = params[:castCrew]
 
     if @movie.save
       # Movie saved successfully
@@ -31,5 +30,5 @@ class AddmovieController < ApplicationController
   def movie_params
     params.require(:movie).permit(:title, :poster, :genre, :director, :duration, :description,:releaseDate, :producer,:castcrew)
   end
-  @user = User.new
+  
 end
