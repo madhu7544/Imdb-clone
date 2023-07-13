@@ -30,7 +30,7 @@
           <button class="search-btn" id="searchBtn">Search</button>
         </div>
         <div>
-          <label class="label">Filter By:</label><br/>
+          <%# <label class="label">Filter By:</label><br/> %>
           <select id="selectOption" class="select-option">
             <option value="all">All</option>
             <option value="genre">Genre</option>
@@ -65,20 +65,20 @@
       <div class="movies-container">
         <h1 class="movies-header">Movies:</h1>
         <ul class="movies-page" id="moviesPage">
-          <%= @movies.each do |each|%>
+          <% @movies.each do |each| %>
             <li class="each-movie">
               <%= link_to movies_path(each.id), class: "movie-anchor" do %>
-              <%= image_tag each.poster, class: "movie-image" %>
+                <%= image_tag each.poster, class: "movie-image" %>
                 <div class="content">
                   <h3 class="movie-title"><%= each.title %></h3>
-                  <p class="movie-rating">Ratings: <%= each.director%></p>
+                  <p class="movie-rating">Release Date: <%= each.releasedate %></p>
                 </div>
-            <% end %>
+              <% end %>
             </li>
-          <%end%>
-          </ul>
+          <% end %>
+        </ul>
       </div>
     </div>
-    <%= javascript_include_tag 'home', 'data-turbolinks-track'=> 'reload' %>
+    <%= javascript_include_tag 'home', 'data-turbolinks-track'=> 'reload'%>
   </body>
 </html>
