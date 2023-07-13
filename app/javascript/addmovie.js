@@ -6,7 +6,9 @@ submitMovie.addEventListener("click", (e) => {
   const title = document.getElementById("title").value;
   const poster = document.getElementById("poster").value;
   const genre = document.getElementById("genre").value;
+  const releaseDate = document.getElementById("releaseDate").value;
   const director = document.getElementById("director").value;
+  const producer = document.getElementById("producer").value;
   const duration = document.getElementById("duration").value;
   const description = document.getElementById("description").value;
   fetch("/addmovie", {

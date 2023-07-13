@@ -12,6 +12,7 @@ class AddmovieController < ApplicationController
     @movie.director=params[:director]
     @movie.duration=params[:duration]
     @movie.description=params[:description]
+    puts movie
 
     if @movie.save
       # Movie saved successfully

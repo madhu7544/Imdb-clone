@@ -1,75 +1,61 @@
-let newdata = [
-    {
-      id: 1,
-      image:
-        "https://res.cloudinary.com/dsiyffj0o/image/upload/v1688532310/spiderman_ygqmht.jpg",
-      title: "Spider Man",
-      ratings: 8.2,
-      year: "2018",
-      genre: ["Family", "Action"],
-      director: "Sam Raimi",
-    },
-    {
-      id: 2,
-      image:
-        "https://res.cloudinary.com/dsiyffj0o/image/upload/v1688532646/avengers_ony9cd.jpg",
-      title: "Avengers",
-      ratings: 8.5,
-      year: "2012",
-      genre: ["Drama", "Thriller"],
-      director:"Joe Russo",
-    },
-    {
-      id: 3,
-      image:
-        "https://res.cloudinary.com/dsiyffj0o/image/upload/v1688532750/godfather_biyyrk.jpg",
-      title: "The Godfather",
-      ratings: 7,
-      year: "1972",
-      genre: ["Drama", "Crime"],
-      director:"Francis Ford cuppala",
-    },
-    {
-      id: 4,
-      image:
-        "https://res.cloudinary.com/dsiyffj0o/image/upload/v1688532809/avatar_cgfuct.avif",
-      title: "Avatar",
-      ratings: 9,
-      year: "2018",
-      genre: ["Sci-fi", "Action"],
-      director:"James Cameron",
-    },
-    {
-      id: 5,
-      image:
-        "https://res.cloudinary.com/dsiyffj0o/image/upload/v1688532417/spider_2_er9ffi.jpg",
-      title: "Spider Man-2",
-      ratings: 7.7,
-      year: "2016",
-      genre: ["Sci-fi", "Action"],
-      director: "Sam Raimi",
-    },
-    {
-      id: 6,
-      image:
-        "https://res.cloudinary.com/dsiyffj0o/image/upload/v1670756880/snow-removal-machine-working-high-ski-slope-snowstorm_454047-2149_1_xfrlul.png",
-      title: "Ghost Rider",
-      ratings: 8,
-      year: "2013",
-      genre: ["Thriller", "Action"],
-      director:"Mark Naveldion",
-    },
-    {
-      id: 7,
-      image:"https://images-na.ssl-images-amazon.com/images/M/MV5BNDc1MGUyNzItNWRkOC00MjM1LWJjNjMtZTZlYWIxMGRmYzVlXkEyXkFqcGdeQXVyMzU3MDEyNjk@._V1_SX1777_CR0,0,1777,999_AL_.jpg",
-      title:"Game of Thrones",
-      ratings:7.1,
-      year: "2011",
-      genre: ["Adventure, Drama, Fantasy"],
-      director:"Mark Mylod",
-    }
-  ];
-  
+const movieData = [
+  {
+    title: "Spider Man",
+    poster:
+      "https://res.cloudinary.com/dsiyffj0o/image/upload/v1688536275/spiderbroad_vjihdj.jpg",
+    genres: ["Action", "Adventure", "Thriller"],
+    releaseYear: 2016,
+    duration: "2h 12m",
+    director: "Sam Raimi",
+    actors: ["Tobey Maguire", "Kirsten Dunst"],
+    summary:
+      "Average teenager Peter Parker is transformed into an extraordinary super hero after he is accidentally bitten by a radioactive spider. When his beloved uncle is savagely murdered during a robbery, young Peter vows to use his powers to avenge his death.",
+  },
+];
+
+const movie = movieData[0];
+const movieFile = document.getElementById("movieData");
+const movieD = document.createElement("div");
+movieD.classList.add("movie-data");
+movieD.innerHTML = `
+  <div class="movie-data">
+    <h1 class="movie-title">${movie.title}</h1>
+    <img
+      src="${movie.poster}"
+      alt="movie-image"
+      class="movie-image"
+    />
+    <div class="details-container">
+      <div class="genre">
+        <h4 class="details-head">Genre:</h4>
+        ${movie.genres
+          .map((genre) => `<p class="description">${genre}</p>`)
+          .join("")}
+      </div>
+      <div class="duration-year">
+        <h4 class="details-head">Release Year:</h4>
+        <p class="description">${movie.releaseYear}</p>
+        <h4 class="details-head">Duration:</h4>
+        <p class="description">${movie.duration}</p>
+      </div>
+    </div>
+    <div class="director-actors">
+      <h4 class="details-head">
+        Director: <span class="description">${movie.director}</span>
+      </h4>
+      <h4 class="details-head">
+        Actors:
+        <span class="description">${movie.actors.join(", ")}</span>
+      </h4>
+    </div>
+    <div class="summary">
+      <h4 class="details-head">Summary:</h4>
+      <p class="summary-desc">${movie.summary}</p>
+    </div>
+  </div>
+`;
+movieFile.appendChild(movieD);
+
 const loginLogout = document.getElementById("login-a");
 
 const dataFromCookie = document.cookie;
