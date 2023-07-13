@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="form-data">
-        <form>
+        <form method="post" id="addMovie">
           <label>Title:</label><br />
           <input type="text" id="title" placeholder="Title" /><br />
           <label>Poster:</label><br />
@@ -29,14 +29,18 @@
           <input type="text" id="genre" placeholder="Genre" /><br />
           <label>Director:</label><br />
           <input type="text" id="director" placeholder="Director" /><br />
+          <label>Producer:</label><br />
+          <input type="text" id="producer" placeholder="Producer" /><br />
+          <label>Release Date:</label><br />
+          <input type="date" id="releaseDate" placeholder="Release Date" /><br />
           <label>Duration:</label><br />
-          <input type="text" id="director" placeholder="Duration" /><br />
+          <input type="text" id="duration" placeholder="Duration" /><br />
           <label>Description:</label><br />
-          <input type="text" id="director" placeholder="Description" /><br />
+          <input type="text" id="description" placeholder="Description" /><br />
         </form>
         <button type="button" id="submitMovie">Submit</button>
       </div>
     </div>
-    <%# <%= javascript_include_tag 'addmovie', 'data-turbolinks-track'=> 'reload' %> 
+    <%= javascript_include_tag 'addmovie', 'data-turbolinks-track'=> 'reload' %>
   </body>
 </html>
