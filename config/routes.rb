@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root "home#index"
 
   get '/home', to: "home#index"
+
+  get '/home', to: "home#index"
   get '/movies/:id', to: "movies#index"
   get '/actors', to: "actors#index"
   get '/login', to: "login#index"
