@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_12_043543) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_13_062125) do
   create_table "actors", force: :cascade do |t|
     t.string "name"
     t.string "photo"
@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_12_043543) do
     t.string "genre"
     t.date "releasedate"
     t.string "producer"
-    t.time "duration"
+    t.string "duration"
     t.string "description"
     t.string "castcrew"
     t.datetime "created_at", null: false

@@ -12,6 +12,9 @@ class AddmovieController < ApplicationController
     @movie.director=params[:director]
     @movie.duration=params[:duration]
     @movie.description=params[:description]
+    @movie.releasedate = params[:releasedate]
+    @movie.producer=params[:producer]
+    @movie.castcrew = params[:castcrew]
     puts movie
 
     if @movie.save
@@ -26,7 +29,7 @@ class AddmovieController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :poster, :genre, :director, :duration, :description)
+    params.require(:movie).permit(:title, :poster, :genre, :director, :duration, :description,:releaseDate, :producer,:castcrew)
   end
   @user = User.new
 end

@@ -11,6 +11,8 @@ submitMovie.addEventListener("click", (e) => {
   const producer = document.getElementById("producer").value;
   const duration = document.getElementById("duration").value;
   const description = document.getElementById("description").value;
+  const castCrew = document.getElementById("castCrew").value;
+
   fetch("/addmovie", {
     method: "POST",
     headers: {
@@ -23,6 +25,9 @@ submitMovie.addEventListener("click", (e) => {
       director,
       duration,
       description,
+      releaseDate,
+      producer,
+      castCrew
     }),
   })
     .then((response) => {
