@@ -20,6 +20,35 @@
         </div>
       </div>
       <div  class="movie-data-container" id= "movieData">
+        <div class="movie-data">
+           <h1 class="movie-title"><%= @movie.title%></h1>
+     <%= image_tag @movie.poster, class: "movie-image" %>
+    <div class="details-container">
+      <div class="genre">
+        <h4 class="details-head">Genre:</h4>
+        <p class="description"><%= @movie.genre%></p>
+      </div>
+      <div class="duration-year">
+        <h4 class="details-head">Release Year:</h4>
+        <p class="description"><%= @movie.releasedate%></p>
+        <h4 class="details-head">Duration:</h4>
+        <p class="description"><%= @movie.duration%></p>
+      </div>
+    </div>
+    <div class="director-actors">
+      <h4 class="details-head">
+        Director: <span class="description"><%= @movie.director%></span>
+      </h4>
+      <h4 class="details-head">
+        Actors:
+        <span class="description"><%= @movie.castcrew%></span>
+      </h4>
+    </div>
+    <div class="summary">
+      <h4 class="details-head">Summary:</h4>
+      <p class="summary-desc"><%= @movie.description%></p>
+    </div>
+        </div>
       </div>
       <div class="actors-container">
           <h4 class="details-head">Cast:</h4>
@@ -43,6 +72,6 @@
           </div>
         </div>
     </div>
-    <%= javascript_include_tag 'movies', 'data-turbolinks-track'=> 'reload' %>
+    <%= javascript_include_tag 'movies', 'data-turbolinks-track'=> 'reload'%>
   </body>
 </html>

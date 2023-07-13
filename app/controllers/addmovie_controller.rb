@@ -17,8 +17,7 @@ class AddmovieController < ApplicationController
     @movie.castcrew = params[:castCrew]
 
     if @movie.save
-      # Movie saved successfully
-      # Redirect or return a response as needed
+      redirect_to root_path
     else
       # Movie failed to save
       # Handle errors and return a response
