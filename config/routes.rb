@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/movies/:id', to: "movies#index"
   get '/actors', to: "actors#index"
   get '/login', to: "login#index"
+  post '/login', to: 'login#create'
 
   get '/signup', to: "signup#index"
   post '/signup', to: "signup#create"
