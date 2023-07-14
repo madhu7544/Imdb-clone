@@ -69,7 +69,6 @@ const passwordEmail = (cookieValue) => {
 };
 
 const token = passwordEmail("token");
-console.log(token);
 
 if (token === "false") {
   loginLogout.innerText = "Login";
@@ -79,10 +78,10 @@ if (token === "false") {
 loginLogout.addEventListener("click", () => {
   if (token === "false") {
     loginLogout.innerText = "Login";
-    window.location.href = "/login.html";
+    window.location.href = "/login";
   } else {
     loginLogout.innerText = "Logout";
-    window.location.href = "/movies.html";
+    window.location.href = "/movies";
     document.cookie = "token=false; expires=Thu, 1 Jan 2024 00:00:00 UTC";
   }
 });
