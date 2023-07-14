@@ -16,6 +16,11 @@ class AddmovieController < ApplicationController
     @movie.producer=params[:producer]
     @movie.castcrew = params[:castCrew]
 
+    # @actor = Actor.new
+    # @actor.name=params[:actorName]
+    # @actor.photo=params[:actorImage]
+    # @actor.description=params[:actorBio]
+
     if @movie.save
       redirect_to root_path
     else
@@ -27,7 +32,11 @@ class AddmovieController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :poster, :genre, :director, :duration, :description,:releaseDate, :producer,:castcrew)
+    params.require(:movie).permit(:title, :poster, :genre, :director, :duration, :description,:releaseDate, :producer,:castCrew)
   end
-  
+
+  # def actor_params
+  #   params.require(:actor).permit(:actorName, :actorImage, :actorBio)
+  # end
+
 end

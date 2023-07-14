@@ -1,5 +1,7 @@
 const submitMovie = document.getElementById("submitMovie");
 
+const errorMsg = document.getElementById("errorMsg");
+
 submitMovie.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -12,6 +14,15 @@ submitMovie.addEventListener("click", (e) => {
   const duration = document.getElementById("duration").value;
   const description = document.getElementById("description").value;
   const castCrew = document.getElementById("castCrew").value;
+
+  // const actorName = document.getElementById("actorName").value;
+  // const actorImage = document.getElementById("actorImage").value;
+  // const actorBio = document.getElementById("actorBio").value;
+
+  if (!title || !genre || !releaseDate || !director || !producer || !duration || !description || !castCrew) {
+   errorMsg.textContent= "Please fill in all the fields"
+  return;
+  }
 
   fetch("/addmovie", {
     method: "POST",

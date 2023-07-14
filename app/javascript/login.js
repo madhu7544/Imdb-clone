@@ -49,37 +49,49 @@ let errorEmail = document.getElementById("email-error");
 //   }
 // });
 
-
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let emailElement = document.getElementsByName("email")[0].value;
   let passwordElement = document.getElementsByName("password")[0].value;
 
-  fetch("/login", {
-    method: "POST",
-    headers: {
+  if (emailElement === "") {
+    errorEmail.textContent = "Email is required";
+  } else {
+    errorEmail.textContent = "";
+  }
+
+  if (passwordElement === "") {
+    errorPassword.textContent = "Password is required";
+  } else {
+    errorPassword.textContent = "";
+  }
+  if (emailElement !== "" && passwordElement !== "") {
+    fetch("/login", {
+      method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        "X-CSRF-Token": csrfToken,
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": csrfToken,
+        },
       },
-    },
-    body: JSON.stringify({ email: emailElement, password: passwordElement }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.success) {
-        let snackbar = document.getElementById("snackbar");
-        snackbar.innerHTML = "Successfully Logged In";
-        snackbar.classList.add("show");
-        setTimeout(function () {
-          snackbar.classList.remove("show");
-          window.location.href = "/home";
-        }, 3000);
-      } else {
-        errorPassword.textContent = "Email and password mismatch";
-      }
+      body: JSON.stringify({ email: emailElement, password: passwordElement }),
     })
-    .catch((error) => {
-      console.log(error);
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          let snackbar = document.getElementById("snackbar");
+          snackbar.innerHTML = "<%= flash[:notice] %>";
+          snackbar.classList.add("show");
+          setTimeout(function () {
+            snackbar.classList.remove("show");
+            window.location.href = "/home";
+          }, 3000);
+        } else {
+          errorPassword.textContent = "<%= flash.now[:alert] %>";
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 });
