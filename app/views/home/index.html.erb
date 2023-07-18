@@ -15,55 +15,52 @@
             alt="logo"
             class="home-logo"
         /></a>
-        <div class="login-page-container">
-          <button class="login-a" id="login"></button>
-        </div>
+        <% if @current %>
+          <button class="new-movie" id="addMovie">New Movie</button>
+          <div class="login-page-container">
+           <button class="login-a" id="logout">Logout</button>
+          </div>
+        <% else %>
+          <div class="login-page-container">
+            <button class="login-a" id="login">Login</button>
+          </div>
+        <% end %>
       </div>
       <div class="filter-container">
         <div class="search-form">
-          <%# <input
-            type="search"
-            placeholder="Search"
-            class="search-input"
-            id="inputSearch"
-          />
-          <button class="search-btn" id="searchBtn">Search</button> %>
-          <%= form_tag(home_path, method: 'get') do %>
-            <%= text_field_tag :query, nil, class:'search-input', placeholder: 'Search by Title'%>
-            <%= submit_tag 'Search', class:'search-btn'%>
-          <% end %>
-        </div>
-        <div>
-          <%# <label class="label">Filter By:</label><br/> %>
-          <select id="selectOption" class="select-option">
-            <option value="all">All</option>
-            <option value="genre">Genre</option>
-            <option value="release-year">Release Year</option>
-            <option value="rating">Rating</option>
-          </select>
-          <div id="genreFilter" style="display: none">
-            <label class="label">Genre:</label><br/>
-            <select id="selectGenre" class="select-option">
+          <form id="search-form">
+            <input id="query" type="text" class="search-input" placeholder="Search by Title">
+            <button type="submit" class="search-btn">Search</button>
+            <select id="selectOption" class="select-option">
               <option value="all">All</option>
-              <option value="Family">Family</option>
-              <option value="Action">Action</option>
-              <option value="Drama">Drama</option>
-              <option value="Thriller">Thriller</option>
-              <option value="Crime">Crime</option>
-              <option value="Sci-fi">Sci-fi</option>
+              <option value="genre">Genre</option>
+              <option value="release-year">Release Year</option>
+              <option value="rating">Rating</option>
             </select>
-          </div>
-          <div id="yearFilter" style="display: none">
-            <label class="label">Year:</label><br/>
-            <select id="selectYear" class="select-option">
-              <option value="all">All</option>
-              <option value="2018">2018</option>
-              <option value="2016">2016</option>
-              <option value="2013">2013</option>
-              <option value="2012">2012</option>
-              <option value="1972">1972</option>
-            </select>
-          </div>
+            <div id="genreFilter" style="display: none">
+              <label class="label">Genre:</label><br/>
+              <select id="selectGenre" class="select-option">
+                <option value="">All</option>
+                <option value="Family">Family</option>
+                <option value="Action">Action</option>
+                <option value="Drama">Drama</option>
+                <option value="Thriller">Thriller</option>
+                <option value="Crime">Crime</option>
+                <option value="Sci-fi">Sci-fi</option>
+              </select>
+            </div>
+            <div id="yearFilter" style="display: none">
+              <label class="label">Year:</label><br/>
+              <select id="selectYear" class="select-option">
+                <option value="">All</option>
+                <option value="2018">2018</option>
+                <option value="2016">2016</option>
+                <option value="2013">2013</option>
+                <option value="2012">2012</option>
+                <option value="1972">1972</option>
+              </select>
+            </div>
+          </form>
         </div>
       </div>
       <div class="movies-container">
@@ -75,7 +72,7 @@
                 <%= image_tag each.poster, class: "movie-image" %>
                 <div class="content">
                   <h3 class="movie-title"><%= each.title %></h3>
-                  <p class="movie-rating">Ratings: <%= 8 %></p>
+                  <p class="movie-rating">Ratings:<%=each.rating %></p>
                 </div>
               <% end %>
             </li>

@@ -55,18 +55,6 @@
 //   },
 // ];
 
-
-// const moviesPage = document.getElementById("moviesPage");
-
-
-// const searchInput = document.getElementById("inputSearch");
-// const searchButton = document.getElementById("searchBtn");
-// const selectOption = document.getElementById("selectOption");
-
-
-
-
-
 // const moviesData = (each) => {
 //   const liElement = document.createElement("li");
 //   liElement.classList.add("each-movie");
@@ -82,12 +70,14 @@
 //   moviesPage.appendChild(liElement);
 // };
 
+const searchInput = document.getElementById("inputSearch");
+const searchButton = document.getElementById("searchBtn");
+const selectOption = document.getElementById("selectOption");
+
 
 // data.map((each) => {
 //   moviesData(each);
 // });
-
-
 
 // const filterData = () => {
 //   moviesPage.innerHTML = "";
@@ -150,62 +140,176 @@
 //   }
 // };
 
-// selectOption.addEventListener("change", () => {
-//   const selectedOption = selectOption.value;
-//   const genreFilter = document.getElementById("genreFilter");
-//   const yearFilter = document.getElementById("yearFilter");
-//   const selectGenre = document.getElementById("selectGenre");
-//   const selectYear = document.getElementById("selectYear");
 
-//   if (selectedOption === "genre") {
-//     genreFilter.style.display = "block";
-//     yearFilter.style.display = "none";
-//     selectGenre.addEventListener("change", () => {
-//       const selectedGenre = selectGenre.value;
-//       filterDataOption(selectedOption, selectedGenre);
-//     });
-//   } else if (selectedOption === "release-year") {
-//     genreFilter.style.display = "none";
-//     yearFilter.style.display = "block";
-//     selectYear.addEventListener("change", () => {
-//       const selectedYear = selectYear.value;
-//       filterDataOption(selectedOption, selectedYear);
-//     });
-//   } else {
-//     genreFilter.style.display = "none";
-//     yearFilter.style.display = "none";
-//     filterDataOption(selectedOption);
-//   }
-//   filterDataOption(selectedOption);
+
+
+// searchButton.addEventListener("click", () => {
+//   let searchQuery = document.getElementById("inputSearch").value;
+//   console.log(searchQuery);
+//   searchMovies(searchQuery);
 // });
 
-const loginLogout = document.getElementById("login");
+// function searchMovies(query) {
+//   fetch("/home?query=" + encodeURIComponent(query))
+//     .then(function (response) {
+//       if (response.ok) {
+//         return response.json();
+//       } else {
+//         throw new Error("Error: " + response.status);
+//       }
+//     })
+//     .then(function (movies) {
+//       renderMovies(movies);
+//     })
+//     .catch(function (error) {
+//       console.error("Error:", error);
+//     });
+// }
 
-const dataFromCookie = document.cookie;
+// const loginLogout = document.getElementById("login-a");
 
-const passwordEmail = (cookieValue) => {
-  const cookies = dataFromCookie.split("; ");
-  const cookie = cookies.find((each) => each.startsWith(`${cookieValue}=`));
-  if (cookie) {
-    const [name, value] = cookie.split("=");
-    return value;
+
+// const dataFromCookie = document.cookie;
+
+// const passwordEmail = (cookieValue) => {
+//   const cookies = dataFromCookie.split("; ");
+//   const cookie = cookies.find((each) => each.startsWith(`${cookieValue}=`));
+//   if (cookie) {
+//     const [name, value] = cookie.split("=");
+//     return value;
+//   }
+// };
+
+// const token = passwordEmail("token");
+
+// if (token == "false") {
+//   loginLogout.innerText = "Login";
+// } else {
+//   loginLogout.innerText = "Logout";
+// }
+// loginLogout.addEventListener("click", () => {
+//   if (token === "false") {
+//     loginLogout.innerText = "Login";
+//     window.location.href = "/login";
+//   } else {
+//     loginLogout.innerText = "Logout";
+//     window.location.href = "/home";
+//     document.cookie = "token=false; expires=Thu, 1 Jan 2024 00:00:00 UTC";
+//   }
+// });
+
+document.getElementById("search-form").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const query = document.getElementById("query").value;
+  const selectOption = document.getElementById("selectOption").value;
+  let rating = ""
+  let all =""
+  if (selectOption=='rating'){
+    rating = 'rating';
   }
-};
+  else if (selectOption=='all'){
+    all ="all";
+  }
 
-const token = passwordEmail("token");
+  const selectGenre = document.getElementById("selectGenre").value;
+  const selectYear = document.getElementById("selectYear").value;
+  const moviesPage = document.getElementById("moviesPage")
+  const formData = {
+    title: query,
+    genre: selectGenre,
+    year: selectYear,
+    rating: rating,
+    all:all,
+  };
+  let formData2 = new URLSearchParams(formData);
 
-if (token == "false") {
-  loginLogout.innerText = "Login";
-} else {
-  loginLogout.innerText = "Logout";
-}
-loginLogout.addEventListener("click", () => {
-  if (token === "false") {
-    loginLogout.innerText = "Login";
-    window.location.href = "/login";
+  fetch(`/search?${formData2}`, {
+    method: "GET",
+    headers: {}
+    }).then((response)=>{
+      return response.json();
+    }).then((data)=>{
+        moviesPage.innerHTML= ""
+        data.map(movie=>{
+          moviesPage.innerHTML +=`
+            <li class="each-movie">
+              <a  href="/movies/${movie.id}" class="movie-anchor">
+                <img src="${movie.poster}" class="movie-image"/>
+                <div class="content">
+                  <h3 class="movie-title">${movie.title}</h3>
+                  <p class="movie-rating">Ratings: ${movie.rating}</p>
+                </div>
+              </a>
+            </li>
+          `
+        })
+    })
+    .catch((error)=>{
+        console.log(error)
+    })
+});
+
+selectOption.addEventListener("change", () => {
+  const selectedOption = selectOption.value;
+  const genreFilter = document.getElementById("genreFilter");
+  const yearFilter = document.getElementById("yearFilter");
+  const selectGenre = document.getElementById("selectGenre");
+  const selectYear = document.getElementById("selectYear");
+
+  if (selectedOption === "genre") {
+    genreFilter.style.display = "block";
+    yearFilter.style.display = "none";
+    selectGenre.addEventListener("change", () => {
+      const selectedGenre = selectGenre.value;
+    });
+  } else if (selectedOption === "release-year") {
+    genreFilter.style.display = "none";
+    yearFilter.style.display = "block";
+    selectYear.addEventListener("change", () => {
+      const selectedYear = selectYear.value;
+    });
   } else {
-    loginLogout.innerText = "Logout";
-    window.location.href = "/home";
-    document.cookie = "token=false; expires=Thu, 1 Jan 2024 00:00:00 UTC";
+    genreFilter.style.display = "none";
+    yearFilter.style.display = "none";
   }
 });
+
+const loginBtn = document.getElementById("login")
+
+if (loginBtn){
+  loginBtn.addEventListener('click',()=>{
+    console.log("login")
+    window.location.href = "/login"
+  })
+}
+const logoutBtn = document.getElementById("logout")
+
+
+if (logoutBtn){
+  const addMovie = document.getElementById("addMovie")
+
+addMovie.addEventListener('click',()=>{
+  window.location.href = "/addmovie"
+})
+
+  logoutBtn.addEventListener('click',()=>{
+    console.log("logout")
+    fetch('/home', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(response => {
+        if (response.ok) {
+          window.location.href='/home'
+        } else {
+          console.error('Error deleting the resource');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  })
+}

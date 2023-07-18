@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: black;
+    color: #fff;
+    height: 100vh;
+  }
+  
+  .add-actor-container .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .add-actor-container .header .home-logo {
+    width: 30%;
+  }
+  .add-actor-container .header .login-page-container {
+    margin-top: 14px;
+    margin-right: 1rem;
+  }
+  .add-actor-container .header .login-a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 28px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  .add-actor-container .movies-details{
+    margin: 1rem;
+  }
+
+  .add-actor-container .form-data{
+    margin: 1rem;
+  }
+  .add-actor-container .form-data label {
+    font-weight: bold;
+  }
+  .add-actor-container .form-data input {
+    margin-bottom: 1rem;
+    padding-left: 5px;
+    height: 28px;
+    width: 100%;
+  }
+  .add-actor-container .form-data #submitActor {
+    width: 100px;
+    height: 28px;
+    background-color: #e6c925;
+    cursor: pointer;
+    border-radius: 3px;
+    border: none;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  #errorMsg{
+    color:red;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 1rem;
+  
+  }
+  
+  @media screen and (min-width: 768px) {
+    .add-actor-container {
+      margin-top: 1rem;
+      margin-left: 4rem;
+      margin-right: 4rem;
+    }
+    .add-actor-container .header .home-logo {
+      width: 16%;
+    }
+    .add-actor-container .form-data {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .add-actor-container .form-data label {
+      font-size: 22px;
+      margin-bottom: 0.6rem;
+    }
+    .add-actor-container.form-data input {
+      height: 35px;
+      width: 100%;
+    }
+    .add-actor-container.form-data #submitActor {
+      width: 150px;
+      height: 35px;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    .add-actor-container{
+      margin-top: 1rem;
+      margin-left: 8rem;
+      margin-right: 8rem;
+    }
+    .add-actor-container.header .home-logo {
+      width: 10%;
+    }
+    .add-actor-container.form-data {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin-left: 4rem;
+    }
+    .add-actor-container .form-data label {
+      font-size: 22px;
+      margin-bottom: 0.6rem;
+    }
+    .add-actor-container .form-data input {
+      height: 40px;
+      width: 60%;
+    }
+    .add-actor-container.form-data #submitActor {
+      width: 150px;
+      height: 40px;
+    }
+  }/*# sourceMappingURL=addmovie.css.map */

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="csrf-token" content="<%= form_authenticity_token %>">
+     <%= stylesheet_link_tag 'addactor', media: 'all', 'data-turbolinks-track'=> 'reload' %>
+    <title>Add Actor</title>
+  </head>
+  <body>
+    <div class="add-actor-container">
+         <div class="header">
+        <a href="/home">
+          <img
+            src="https://res.cloudinary.com/dsiyffj0o/image/upload/v1688446827/IMDb_Internet_Movie_Database_xur1ka.png"
+            alt="logo"
+            class="home-logo"
+        /></a>
+        <div class="login-page-container">
+          <button class="login-a" id="login">Login</button>
+        </div>
+      </div>
+      <div class="movies-details">
+          <select id="movieIdDropdown">
+            <option value="">Select a movie ID</option>
+            <% @movies.each do |movie| %>
+              <option value="<%= movie.id %>"><%= movie.id %></option>
+            <% end %>
+          </select>
+          <select id="movieNameDropdown">
+            <option value="">Select a movie name</option>
+            <% @movies.each do |movie| %>
+              <option value="<%= movie.title %>"><%= movie.title %></option>
+            <% end %>
+          </select>
+        </div>
+        <div class="form-data">
+        <form method="post" id="addActor">
+          <label>Actor Name:</label><br />
+          <input type="text" id="actorName" name="actorname" placeholder="Actor Name" /><br />
+          <label>Actor Image:</label><br />
+          <input type="text" id="actorImage" name="actorImage" placeholder="Actor Image" /><br />
+          <label>Actor Bio:</label><br />
+          <input type="text" id="actorBio" name="actorBio" placeholder="Actor Bio" /><br />
+        </form>
+         <p id="errorMsg"></p>
+        <button type="button" id="submitActor">Submit</button>
+        </div>
+      </div>
+       <%= javascript_include_tag 'addactor', 'data-turbolinks-track'=> 'reload' %>
+    </body>
+  </html>

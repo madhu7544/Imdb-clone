@@ -15,9 +15,15 @@
             alt="logo"
             class="home-logo"
         /></a>
-        <div class="login-page-container">
-          <button class="login-a" id="login-a"></button>
-        </div>
+       <% if @current %>
+          <div class="login-page-container">
+           <button class="login-a" id="logout">Logout</button>
+          </div>
+        <% else %>
+          <div class="login-page-container">
+            <button class="login-a" id="login">Login</button>
+          </div>
+        <% end %>
       </div>
       <div  class="movie-data-container" id= "movieData">
         <div class="movie-data">
@@ -53,22 +59,12 @@
       <div class="actors-container">
           <h4 class="details-head">Cast:</h4>
           <div class="actots-image-container">
-            <a class="actor" href="/actors">
-              <img
-                src="https://res.cloudinary.com/dsiyffj0o/image/upload/v1688555512/Tobey_Maguire_2014_tkxv6u.jpg"
-                alt="actor-image"
-                class="actor-image"
-              />
-              <p class="actor-name">Tobey Meguire</p>
-            </a>
-            <a class="actor" href="/actors">
-              <img
-                src="https://res.cloudinary.com/dsiyffj0o/image/upload/v1688556172/Kirsten_Dunst_Cannes_2016_c3bqdc.jpg"
-                alt="actor-image"
-                class="actor-image"
-              />
-              <p class="actor-name">Kirsten Dunst Cannes</p>
-            </a>
+            <% @actor.each do |actor| %>
+              <a class="actor" href="/actors/<%= actor.id %>">
+                <img src="<%= actor.photo %>" alt="actor-image" class="actor-image" />
+                <p class="actor-name"><%= actor.name %></p>
+              </a>
+            <% end %>
           </div>
         </div>
     </div>

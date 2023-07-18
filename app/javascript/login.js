@@ -1,4 +1,4 @@
-let loginForm = document.getElementById("log-in-form");
+let loginForm = document.getElementById("login-form");
 let errorPassword = document.getElementById("error-password");
 let errorEmail = document.getElementById("email-error");
 
@@ -69,26 +69,13 @@ loginForm.addEventListener("submit", (e) => {
     fetch("/login", {
       method: "POST",
       headers: {
-        headers: {
-          "Content-Type": "application/json",
-          "X-CSRF-Token": csrfToken,
-        },
+        "Content-Type": "application/json",
+        // "X-CSRF-Token": csrfToken,
       },
       body: JSON.stringify({ email: emailElement, password: passwordElement }),
     })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          let snackbar = document.getElementById("snackbar");
-          snackbar.innerHTML = "<%= flash[:notice] %>";
-          snackbar.classList.add("show");
-          setTimeout(function () {
-            snackbar.classList.remove("show");
-            window.location.href = "/home";
-          }, 3000);
-        } else {
-          errorPassword.textContent = "<%= flash.now[:alert] %>";
-        }
+      .then((response) => {
+        window.location.replace("/home")
       })
       .catch((error) => {
         console.log(error);

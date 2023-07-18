@@ -20,6 +20,17 @@ body {
   margin-top: 14px;
   margin-right: 1rem;
 }
+.home-page .header .new-movie{
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  width:400px;
+  margin-right: 10px;
+}
 .home-page .header .login-a {
   color: #fff;
   text-decoration: none;
@@ -132,8 +143,8 @@ body {
     .each-movie
     .movie-anchor
     .movie-image {
-    width: 200px;
-    height: 250px;
+    width: 200px ;
+    height: 250px ;
   }
 }
 @media screen and (min-width: 1280px) {

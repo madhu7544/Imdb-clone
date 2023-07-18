@@ -1,9 +1,31 @@
 class HomeController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:destroy]
+
   def index
-    @movies = Movie.all
-    if params[:query].present?
-      search_query = params[:query]
-      @movies = Movie.where('title LIKE ?', "%#{search_query}%")
-    end
+    @current = session[:userid].present?
+    @movies = Movie.all    
   end
+
+  def search
+    title =params[:title]
+    year = params[:year]
+    genre = params[:genre]
+    rating = params[:rating]
+    all = params[:all]
+    @movies = Movie.all
+
+    @movies= @movies.where('title LIKE ?', "%#{title}%") if title.present?
+    @movies= @movies.where('genre LIKE ?', "%#{genre}%") if genre.present?
+    @movies= @movies.where('releasedate LIKE ?', "%#{year}%") if year.present?
+    @movies = @movies.order(rating: :desc) if rating.present?
+    @movies = Movie.all if all.present?
+    
+    render json: @movies
+  end
+
+  def destroy
+    session.delete(:userid)
+    redirect_to root_path
+  end
+
 end
