@@ -74,11 +74,16 @@ loginForm.addEventListener("submit", (e) => {
       },
       body: JSON.stringify({ email: emailElement, password: passwordElement }),
     })
-      .then((response) => {
-        window.location.replace("/home")
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    .then(response => response)
+    .then(data => {
+      if( data.status!=422)
+      {window.location.href = '/home';}
+      else{
+        errorPassword.textContent = "Invalid username or password";
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
   }
 });

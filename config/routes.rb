@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   post "/home", to: "home#destroy"
 
   get '/movies/:id', to: "movies#index"
-  post "/movies/:id", to: "movies#destroy"
+  post "/movies/:id", to: "movies#create"
+  delete "/movies/:id", to: "movies#destroy"
 
   get '/actors/:id', to: "actors#index"
   post "/actors/:id", to: "actors#destroy"

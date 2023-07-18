@@ -118,6 +118,10 @@ body {
   .movie-rating {
   font-weight: bold;
 }
+.review-container{
+  display: flex;
+  flex-direction: column;
+}
 
 @media screen and (min-width: 700px) {
   .home-page .header {

@@ -50,10 +50,10 @@
         <span class="description"><%= @movie.castcrew%></span>
       </h4>
     </div>
-    <div class="summary">
-      <h4 class="details-head">Summary:</h4>
-      <p class="summary-desc"><%= @movie.description%></p>
-    </div>
+      <div class="summary">
+        <h4 class="details-head">Summary:</h4>
+        <p class="summary-desc"><%= @movie.description%></p>
+      </div>
         </div>
       </div>
       <div class="actors-container">
@@ -66,7 +66,19 @@
               </a>
             <% end %>
           </div>
-        </div>
+         <% if @current %>
+          <div class="review-container">
+            <form method="post" id="addActor">
+              <label class="label">Rating:</label><br />
+              <input class="input" type="number" placeholder="Rating" id="rating"><br />
+              <label class="label">Review Text:</label><br />
+              <input class="input" type="text" name="review_text" placeholder="Review Text" id="review"><br/>
+            </form>
+             <p id="errorMsg"></p>
+            <button type="button" id="submitBtn" class="submitBtn">Submit</button>
+          </div>
+          <%end%>
+      </div>
     </div>
     <%= javascript_include_tag 'movies', 'data-turbolinks-track'=> 'reload'%>
   </body>

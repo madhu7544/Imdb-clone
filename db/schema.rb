@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_18_055723) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_18_095323) do
   create_table "actors", force: :cascade do |t|
     t.string "name"
     t.string "photo"
@@ -43,15 +43,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_18_055723) do
     t.float "rating"
   end
 
-  create_table "user_ratings_reviews", force: :cascade do |t|
+  create_table "reviews", force: :cascade do |t|
     t.integer "user_id"
     t.integer "movie_id"
     t.float "rating"
     t.string "review_text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["movie_id"], name: "index_user_ratings_reviews_on_movie_id"
-    t.index ["user_id"], name: "index_user_ratings_reviews_on_user_id"
+    t.index ["movie_id"], name: "index_reviews_on_movie_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,6 +65,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_18_055723) do
   add_foreign_key "actors", "movies", column: "movies_id"
   add_foreign_key "connections", "actors", on_delete: :cascade
   add_foreign_key "connections", "movies", on_delete: :cascade
-  add_foreign_key "user_ratings_reviews", "movies"
-  add_foreign_key "user_ratings_reviews", "users"
+  add_foreign_key "reviews", "movies"
+  add_foreign_key "reviews", "users"
 end

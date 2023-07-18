@@ -67,6 +67,7 @@
   .selectId{
     color:#fff;
     margin-bottom: 1rem;
+    font-weight: bold;
   }
   .optionValue{
     width:250px;

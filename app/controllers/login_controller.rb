@@ -16,7 +16,8 @@ class LoginController < ApplicationController
       session[:userid] = user.id
       redirect_to root_path
     else
-      redirect_to login_path
+      error_message = 'Invalid username or password'
+      render json: { error: error_message }, status: :unprocessable_entity
     end
   end
 end
