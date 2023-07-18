@@ -26,33 +26,36 @@
 // };
 
 // populateProfile(actorData);
+const loginBtn = document.getElementById("login");
 
-const loginLogout = document.getElementById("login-a");
-
-const dataFromCookie = document.cookie;
-const passwordEmail = (cookieValue) => {
-  const cookies = dataFromCookie.split("; ");
-  const cookie = cookies.find((each) => each.startsWith(`${cookieValue}=`));
-  if (cookie) {
-    const [name, value] = cookie.split("=");
-    return value;
-  }
-};
-
-const token = passwordEmail("token");
-
-if (token == "false") {
-  loginLogout.innerText = "Login";
-} else {
-  loginLogout.innerText = "Logout";
-}
-loginLogout.addEventListener("click", () => {
-  if (token === "false") {
-    loginLogout.innerText = "Login";
+if (loginBtn) {
+  loginBtn.addEventListener("click", () => {
     window.location.href = "/login";
-  } else {
-    loginLogout.innerText = "Logout";
-    window.location.href = "/actors";
-    document.cookie = "token=false; expires=Thu, 1 Jan 2024 00:00:00 UTC";
-  }
-});
+  });
+}
+const logoutBtn = document.getElementById("logout");
+
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", () => {
+    const url = window.location.href;
+    const id = url.split("/").pop();
+    console.log(id);
+    fetch(`/actors/${id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          window.location.href = `/actors/${id}`;
+        } else {
+          console.error("Error deleting the resource");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  });
+}
+

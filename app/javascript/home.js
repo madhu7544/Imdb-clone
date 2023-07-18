@@ -220,7 +220,7 @@ document.getElementById("search-form").addEventListener("submit", function(event
     genre: selectGenre,
     year: selectYear,
     rating: rating,
-    all:all,
+    all:all
   };
   let formData2 = new URLSearchParams(formData);
 

@@ -18,8 +18,6 @@ class HomeController < ApplicationController
     @movies= @movies.where('genre LIKE ?', "%#{genre}%") if genre.present?
     @movies= @movies.where('releasedate LIKE ?', "%#{year}%") if year.present?
     @movies = @movies.order(rating: :desc) if rating.present?
-    @movies = Movie.all if all.present?
-    
     render json: @movies
   end
 

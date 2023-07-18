@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post "/movies/:id", to: "movies#destroy"
 
   get '/actors/:id', to: "actors#index"
+  post "/actors/:id", to: "actors#destroy"
 
   get '/login', to: "login#index"
   post '/login', to: 'login#create'

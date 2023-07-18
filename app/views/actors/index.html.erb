@@ -15,9 +15,15 @@
             alt="logo"
             class="home-logo"
         /></a>
-        <div class="login-page-container">
-          <button class="login-a" id="login-a"></button>
-        </div>
+        <% if @current %>
+          <div class="login-page-container">
+           <button class="login-a" id="logout">Logout</button>
+          </div>
+        <% else %>
+          <div class="login-page-container">
+            <button class="login-a" id="login">Login</button>
+          </div>
+        <% end %>
       </div>
       <div class="actors-data">
         <div class="profile-image">

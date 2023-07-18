@@ -45,3 +45,41 @@ submitMovie.addEventListener("click", (e) => {
       console.log(error);
     });
 });
+
+
+
+
+
+// const loginBtn = document.getElementById("login")
+
+// if (loginBtn){
+//   loginBtn.addEventListener('click',()=>{
+//     console.log("login")
+//     window.location.href = "/login"
+//   })
+// }
+// const logoutBtn = document.getElementById("logout")
+
+
+// if (logoutBtn){
+
+//   logoutBtn.addEventListener('click',()=>{
+//     console.log("logout")
+//     fetch('/home', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//     })
+//       .then(response => {
+//         if (response.ok) {
+//           window.location.href='/home'
+//         } else {
+//           console.error('Error deleting the resource');
+//         }
+//       })
+//       .catch(error => {
+//         console.error('Error:', error);
+//       });
+//   })
+// }

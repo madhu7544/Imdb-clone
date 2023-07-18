@@ -17,20 +17,14 @@
             class="home-logo"
         /></a>
         <div class="login-page-container">
-          <button class="login-a" id="login">Login</button>
+          <button class="login-a" id="login">Add Actor</button>
         </div>
       </div>
       <div class="movies-details">
-          <select id="movieIdDropdown">
-            <option value="">Select a movie ID</option>
+        <p class="selectId">Select a Movie</p>
+          <select id="movieIdDropdown" class="optionValue"> 
             <% @movies.each do |movie| %>
-              <option value="<%= movie.id %>"><%= movie.id %></option>
-            <% end %>
-          </select>
-          <select id="movieNameDropdown">
-            <option value="">Select a movie name</option>
-            <% @movies.each do |movie| %>
-              <option value="<%= movie.title %>"><%= movie.title %></option>
+              <option value="<%= movie.id %>"><%= movie.id %>. <%= movie.title %></option>
             <% end %>
           </select>
         </div>
@@ -50,3 +44,4 @@
        <%= javascript_include_tag 'addactor', 'data-turbolinks-track'=> 'reload' %>
     </body>
   </html>
+  
