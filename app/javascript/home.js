@@ -198,7 +198,10 @@ const selectOption = document.getElementById("selectOption");
 //   }
 // });
 
-document.getElementById("search-form").addEventListener("submit", function(event) {
+
+let searchForm = document.getElementById("search-form")
+
+searchForm.addEventListener("submit", function(event) {
   event.preventDefault();
 
   const query = document.getElementById("query").value;
