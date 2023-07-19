@@ -70,20 +70,25 @@ loginForm.addEventListener("submit", (e) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // "X-CSRF-Token": csrfToken,
       },
       body: JSON.stringify({ email: emailElement, password: passwordElement }),
     })
-    .then(response => response)
-    .then(data => {
-      if( data.status!=422)
-      {window.location.href = '/home';}
-      else{
-        errorPassword.textContent = "Invalid username or password";
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+      .then((response) => response)
+      .then((data) => {
+        if (data.status != 422) {
+          let snackbar = document.getElementById("snackbar");
+          snackbar.innerHTML = "Successfully Login";
+          snackbar.classList.add("show");
+          setTimeout(function () {
+            snackbar.classList.remove("show");
+            window.location.href = "/home";
+          }, 3000);
+        } else {
+          errorPassword.textContent = "Invalid username or password";
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }
 });

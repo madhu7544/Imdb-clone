@@ -107,7 +107,7 @@ body {
   .movie-title {
   margin-bottom: 1rem;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 17px;
 }
 .home-page
   .movies-container
@@ -151,6 +151,17 @@ body {
     width: 200px ;
     height: 250px ;
   }
+  .home-page
+  .movies-container
+  .movies-page
+  .each-movie
+  .movie-anchor
+  .content
+  .movie-title {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: 20px;
+}
 }
 .no-found{
   color:#fff;
@@ -199,4 +210,15 @@ body {
     width: 300px;
     height: 320px;
   }
+  .home-page
+  .movies-container
+  .movies-page
+  .each-movie
+  .movie-anchor
+  .content
+  .movie-title {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: 26px;
+}
 } /*# sourceMappingURL=home.css.map */

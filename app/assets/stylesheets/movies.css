@@ -8,7 +8,6 @@ body {
   background-color: black;
   height: 100vh;
 }
-
 .movies-page .header {
   display: flex;
   justify-content: space-between;
@@ -145,6 +144,7 @@ body {
   width:70%;
   height:35px;
   margin-bottom: 1rem;
+  padding-left: 10px;
 }
 .submitBtn{
   background-color: #e6c925;
@@ -156,7 +156,7 @@ body {
   cursor: pointer;
 }
 .review-data{
-  margin-bottom: 2rem;
+  padding-bottom: 2rem;
 }
 .cont{
   margin-left: 1rem;
@@ -164,6 +164,7 @@ body {
 }
 .rating{
   color: #a7c7b6;
+  font-size: 18px;
 }
 
 @media screen and (min-width: 768px) {
