@@ -201,10 +201,14 @@
 
 let searchForm = document.getElementById("search-form")
 
-searchForm.addEventListener("submit", function(event) {
+searchForm.addEventListener("input", function(event) {
   event.preventDefault();
 
+  let search="";
   const query = document.getElementById("query").value;
+  if (query.length>3){
+    search = query
+  }
   const selectOption = document.getElementById("selectOption").value;
   let rating = ""
   let all =""
@@ -215,11 +219,12 @@ searchForm.addEventListener("submit", function(event) {
     all ="all";
   }
 
+  
   const selectGenre = document.getElementById("selectGenre").value;
   const selectYear = document.getElementById("selectYear").value;
   const moviesPage = document.getElementById("moviesPage")
   const formData = {
-    title: query,
+    title: search,
     genre: selectGenre,
     year: selectYear,
     rating: rating,
