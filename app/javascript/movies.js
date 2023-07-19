@@ -11,33 +11,37 @@ const logoutBtn = document.getElementById("logout");
 if (logoutBtn) {
   const submitReview = document.getElementById("submitBtn");
   console.log(submitReview);
-  
+
   submitReview.addEventListener("click", (e) => {
     e.preventDefault();
     let url = window.location.href;
     let id = parseInt(url.split("/").pop());
     const rating = document.getElementById("rating").value;
     const review = document.getElementById("review").value;
-    console.log(rating)
-  
-    fetch(`/movies/${id}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        rating,
-        review,
-        id
-      }),
-    })
-      .then((response) => {
-        console.log("Review was successfully saved");
-        window.location.replace(`/movies/${id}`);
+    const error = document.getElementById("error")
+    console.log(rating);
+    if (parseInt(rating) <= 10) {
+      fetch(`/movies/${id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          rating,
+          review,
+          id,
+        }),
       })
-      .catch((error) => {
-        console.log(error);
-      });
+        .then((response) => {
+          console.log("Review was successfully saved");
+          window.location.replace(`/movies/${id}`);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }else{
+      error.innerText = "Rating from 1 to 10"
+    }
   });
 
   logoutBtn.addEventListener("click", () => {
