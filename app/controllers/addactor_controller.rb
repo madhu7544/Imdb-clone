@@ -7,6 +7,7 @@ class AddactorController < ApplicationController
     end
 
     def create
+        @current = session[:user_id]
         actor = Actor.new
         actor.name = params[:name]
         actor.photo = params[:photo]
