@@ -70,9 +70,9 @@
 //   moviesPage.appendChild(liElement);
 // };
 
-const searchInput = document.getElementById("inputSearch");
-const searchButton = document.getElementById("searchBtn");
-const selectOption = document.getElementById("selectOption");
+// const searchInput = document.getElementById("inputSearch");
+// const searchButton = document.getElementById("searchBtn");
+// const selectOption = document.getElementById("selectOption");
 
 
 // data.map((each) => {
