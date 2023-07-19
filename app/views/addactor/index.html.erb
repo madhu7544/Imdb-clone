@@ -24,7 +24,7 @@
         <p class="selectId">Select a Movie</p>
           <select id="movieIdDropdown" class="optionValue"> 
             <% @movies.each do |movie| %>
-              <option value="<%= movie.id %>"><%= movie.id %>. <%= movie.title %></option>
+              <option value="<%= movie.id %>"><%= movie.title %></option>
             <% end %>
           </select>
         </div>

@@ -66,6 +66,15 @@
               </a>
             <% end %>
           </div>
+        <div class="review-data">
+          <h4 class="details-head">User Reviews:</h4>
+          <% @review.each do |review| %>
+            <div class="cont">
+              <p class="rating">Rating: <%= review.rating%> </p>
+              <p class="rating">Review: <%= review.review_text%></p>
+            </div>
+          <% end %>
+        </div>
          <% if @current %>
           <div class="review-container">
             <form method="post" id="addActor">

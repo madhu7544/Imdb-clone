@@ -116,6 +116,7 @@ body {
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 0.5rem;
+  
 }
 .movies-page .actors-container .actots-image-container .actor {
   display: flex;
@@ -154,7 +155,16 @@ body {
   margin-bottom: 2rem;
   cursor: pointer;
 }
-
+.review-data{
+  margin-bottom: 2rem;
+}
+.cont{
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+.rating{
+  color: #a7c7b6;
+}
 
 @media screen and (min-width: 768px) {
   .movies-page {
