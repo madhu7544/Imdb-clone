@@ -1,45 +1,45 @@
-let searchForm = document.getElementById("search-form")
+let searchForm = document.getElementById("search-form");
 
-searchForm.addEventListener("input", function(event) {
+searchForm.addEventListener("input", function (event) {
   event.preventDefault();
 
-  let search="";
-  const query = document.getElementById("query").value;
-  if (query.length>3){
-    search = query
+  let search = "";
+  const query = document.getElementById("query").value.trim();
+  if (query.length > 3) {
+    search = query;
   }
   const selectOption = document.getElementById("selectOption").value;
-  let rating = ""
-  let all =""
-  if (selectOption=='rating'){
-    rating = 'rating';
-  }
-  else if (selectOption=='all'){
-    all ="all";
+  let rating = "";
+  let all = "";
+  if (selectOption == "rating") {
+    rating = "rating";
+  } else if (selectOption == "all") {
+    all = "all";
   }
 
-  
   const selectGenre = document.getElementById("selectGenre").value;
   const selectYear = document.getElementById("selectYear").value;
-  const moviesPage = document.getElementById("moviesPage")
+  const moviesPage = document.getElementById("moviesPage");
   const formData = {
     title: search,
     genre: selectGenre,
     year: selectYear,
     rating: rating,
-    all:all
+    all: all,
   };
   let formData2 = new URLSearchParams(formData);
 
   fetch(`/search?${formData2}`, {
     method: "GET",
-    headers: {}
-    }).then((response)=>{
+    headers: {},
+  })
+    .then((response) => {
       return response.json();
-    }).then((data)=>{
-        moviesPage.innerHTML= ""
-        data.map(movie=>{
-          moviesPage.innerHTML +=`
+    })
+    .then((data) => {
+      moviesPage.innerHTML = "";
+      data.map((movie) => {
+        moviesPage.innerHTML += `
             <li class="each-movie">
               <a  href="/movies/${movie.id}" class="movie-anchor">
                 <img src="${movie.poster}" class="movie-image"/>
@@ -49,12 +49,12 @@ searchForm.addEventListener("input", function(event) {
                 </div>
               </a>
             </li>
-          `
-        })
+          `;
+      });
     })
-    .catch((error)=>{
-        console.log(error)
-    })
+    .catch((error) => {
+      console.log(error);
+    });
 });
 
 selectOption.addEventListener("change", () => {
@@ -82,41 +82,40 @@ selectOption.addEventListener("change", () => {
   }
 });
 
-const loginBtn = document.getElementById("login")
+const loginBtn = document.getElementById("login");
 
-if (loginBtn){
-  loginBtn.addEventListener('click',()=>{
-    console.log("login")
-    window.location.href = "/login"
-  })
+if (loginBtn) {
+  loginBtn.addEventListener("click", () => {
+    console.log("login");
+    window.location.href = "/login";
+  });
 }
-const logoutBtn = document.getElementById("logout")
+const logoutBtn = document.getElementById("logout");
 
+if (logoutBtn) {
+  const addMovie = document.getElementById("addMovie");
 
-if (logoutBtn){
-  const addMovie = document.getElementById("addMovie")
+  addMovie.addEventListener("click", () => {
+    window.location.href = "/addmovie";
+  });
 
-addMovie.addEventListener('click',()=>{
-  window.location.href = "/addmovie"
-})
-
-  logoutBtn.addEventListener('click',()=>{
-    console.log("logout")
-    fetch('/home', {
-      method: 'POST',
+  logoutBtn.addEventListener("click", () => {
+    console.log("logout");
+    fetch("/home", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     })
-      .then(response => {
+      .then((response) => {
         if (response.ok) {
-          window.location.href='/home'
+          window.location.href = "/home";
         } else {
-          console.error('Error deleting the resource');
+          console.error("Error deleting the resource");
         }
       })
-      .catch(error => {
-        console.error('Error:', error);
+      .catch((error) => {
+        console.error("Error:", error);
       });
-  })
+  });
 }
