@@ -1,6 +1,7 @@
 class AddactorController < ApplicationController
     protect_from_forgery prepend: true
     skip_before_action :verify_authenticity_token, only: [:create]
+    before_action :isuser_present
 
     def index
         @movies = Movie.all
@@ -19,6 +20,13 @@ class AddactorController < ApplicationController
         else
           return render json: { message: actor.errors.full_messages}, status: :unprocessable_entity
         end
+    end
+
+    def isuser_present
+      if session[:userid].present?
+      else
+        redirect_to login_path
+      end
     end
     
   private
