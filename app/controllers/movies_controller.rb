@@ -11,7 +11,6 @@ class MoviesController < ApplicationController
   end
 
   def create
-    puts "Received parameters"
 
     @review = Review.new
     @review.rating = params[:rating]
