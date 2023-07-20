@@ -21,8 +21,6 @@ class AddmovieController < ApplicationController
     if @movie.save
       return render json: {messaage: "Success"}, status: :created
     else
-      # Movie failed to save
-      # Handle errors and return a response
     end
   end
 
