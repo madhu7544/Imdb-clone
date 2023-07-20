@@ -1,8 +1,8 @@
 class AddmovieController < ApplicationController
   protect_from_forgery prepend: true
-  before_action :isuser_present
 
   def index
+    @movies = Movie.all
   end
 
   def create
@@ -21,15 +21,11 @@ class AddmovieController < ApplicationController
     if @movie.save
       return render json: {messaage: "Success"}, status: :created
     else
+      # Movie failed to save
+      # Handle errors and return a response
     end
   end
 
-  def isuser_present
-    if session[:userid].present?
-    else
-      redirect_to login_path
-    end
-  end
 
   private
 

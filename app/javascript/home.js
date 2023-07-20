@@ -1,4 +1,5 @@
 let searchForm = document.getElementById("search-form");
+let selectOption = document.getElementById("selectOption");
 
 searchForm.addEventListener("input", function (event) {
   event.preventDefault();
@@ -8,12 +9,13 @@ searchForm.addEventListener("input", function (event) {
   if (query.length > 3) {
     search = query;
   }
-  const selectOption = document.getElementById("selectOption").value;
+
+  let option = selectOption.value
   let rating = "";
   let all = "";
-  if (selectOption == "rating") {
+  if (option == "rating") {
     rating = "rating";
-  } else if (selectOption == "all") {
+  } else if (option == "all") {
     all = "all";
   }
 
@@ -27,19 +29,20 @@ searchForm.addEventListener("input", function (event) {
     rating: rating,
     all: all,
   };
+  
   let formData2 = new URLSearchParams(formData);
 
-  fetch(`/search?${formData2}`, {
-    method: "GET",
-    headers: {},
-  })
-    .then((response) => {
-      return response.json();
+    fetch(`/search?${formData2}`, {
+      method: "GET",
+      headers: {},
     })
-    .then((data) => {
-      moviesPage.innerHTML = "";
-      data.map((movie) => {
-        moviesPage.innerHTML += `
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        moviesPage.innerHTML = "";
+        data.map((movie) => {
+          moviesPage.innerHTML += `
             <li class="each-movie">
               <a  href="/movies/${movie.id}" class="movie-anchor">
                 <img src="${movie.poster}" class="movie-image"/>
@@ -50,11 +53,12 @@ searchForm.addEventListener("input", function (event) {
               </a>
             </li>
           `;
+        });
+      })
+      .catch((error) => {
+        console.log(error);
       });
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+
 });
 
 selectOption.addEventListener("change", () => {
