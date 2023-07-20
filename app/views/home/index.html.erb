@@ -44,6 +44,7 @@
                 <option value="Family">Family</option>
                 <option value="Action">Action</option>
                 <option value="Drama">Drama</option>
+                <option value="Adventure">Adventute</option>
                 <option value="Thriller">Thriller</option>
                 <option value="Crime">Crime</option>
                 <option value="Sci-fi">Sci-fi</option>
@@ -51,11 +52,11 @@
             </div>
             <div id="yearFilter" style="display: none">
               <label class="label">Year:</label><br/>
-              <select id="selectYear" class="select-option">
+             <select id="selectYear" class="select-option">
                 <option value="">All</option>
-                <% @movies.each do |movie| %>
-                  <% date = movie.releasedate %>
-                  <option value="<%= date.year %>"><%= date.year %></option>
+                <% years = @movies.map { |movie| movie.releasedate.year }.uniq %>
+                <% years.each do |year| %>
+                  <option value="<%= year %>"><%= year %></option>
                 <% end %>
               </select>
             </div>
