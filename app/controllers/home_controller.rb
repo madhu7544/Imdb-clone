@@ -4,10 +4,7 @@ class HomeController < ApplicationController
 
   def index
     @current = session[:userid].present?
-    @movies = Movie.all    
-    # movie_ids = @movies.pluck(:id)
-    # @average = Review.where(movie_id: movie_ids).average(:rating)
-    # @average ||= 0
+    @movies = Movie.all 
   end
 
   def search
