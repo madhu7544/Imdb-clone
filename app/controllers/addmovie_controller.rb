@@ -17,6 +17,8 @@ class AddmovieController < ApplicationController
     @movie.releasedate = params[:releaseDate] 
     @movie.producer=params[:producer]
     @movie.castcrew = params[:castCrew]
+    @movie.rating = params[:rating]
+
 
     if @movie.save
       return render json: {messaage: "Success"}, status: :created
@@ -28,7 +30,7 @@ class AddmovieController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :poster, :genre, :director, :duration, :description,:releaseDate, :producer,:castCrew)
+    params.require(:movie).permit(:title, :poster, :genre, :director, :duration, :description,:releaseDate, :producer,:castCrew,:rating)
   end
 
 end

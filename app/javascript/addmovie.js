@@ -14,8 +14,10 @@ submitMovie.addEventListener("click", (e) => {
   const duration = document.getElementById("duration").value;
   const description = document.getElementById("description").value;
   const castCrew = document.getElementById("castCrew").value;
+  const rating = document.getElementById("rating").value;
+  
 
-  if (!title || !genre || !releaseDate || !director || !producer || !duration || !description || !castCrew) {
+  if (!title || !genre || !releaseDate || !director || !producer || !duration || !description || !castCrew || !rating) {
    errorMsg.textContent= "Please fill in all the fields"
   return;
   }
@@ -34,7 +36,8 @@ submitMovie.addEventListener("click", (e) => {
       description,
       releaseDate,
       producer,
-      castCrew
+      castCrew,
+      rating
     }),
   })
     .then((response) => {

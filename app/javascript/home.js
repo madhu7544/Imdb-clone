@@ -10,7 +10,7 @@ searchForm.addEventListener("input", function (event) {
     search = query;
   }
 
-  let option = selectOption.value
+  let option = selectOption.value;
   let rating = "";
   let all = "";
   if (option == "rating") {
@@ -29,9 +29,13 @@ searchForm.addEventListener("input", function (event) {
     rating: rating,
     all: all,
   };
-  
-  let formData2 = new URLSearchParams(formData);
 
+  setTimeout(() => {
+    let formData2 = new URLSearchParams(formData);
+    fetchMoviesAfter(formData2);
+  }, 500);
+
+  const fetchMoviesAfter = (formData2) => {
     fetch(`/search?${formData2}`, {
       method: "GET",
       headers: {},
@@ -58,7 +62,7 @@ searchForm.addEventListener("input", function (event) {
       .catch((error) => {
         console.log(error);
       });
-
+  };
 });
 
 selectOption.addEventListener("change", () => {
