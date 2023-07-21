@@ -19,11 +19,13 @@ class HomeController < ApplicationController
                 .left_joins(:reviews)
                 .group('movies.id')
 
-    @movies= @movies.where('title LIKE ?', "%#{title}%") if title.present?
-    @movies= @movies.where('genre LIKE ?', "%#{genre}%") if genre.present?
-    @movies= @movies.where('releasedate LIKE ?', "%#{year}%") if year.present?
-    @movies = @movies.order(average: :desc) if rating.present?
-    render json: @movies
+    @movies = @movies.where('title LIKE ?', "%#{title}%")
+                     .where('genre LIKE ?', "%#{genre}%")
+                     .where('releasedate LIKE ?', "%#{year}%")
+                     .order(average: :desc) if title.present? || genre.present? || year.present? || rating.present?
+
+render json: @movies
+
   end
 
   def destroy
