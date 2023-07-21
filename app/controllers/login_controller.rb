@@ -13,6 +13,7 @@ class LoginController < ApplicationController
 
     if user && user.password == @password
       session[:userid] = user.id
+      session[:role] = user.role
       redirect_to root_path
     else
       error_message = 'Invalid username or password'

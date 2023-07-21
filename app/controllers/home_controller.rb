@@ -4,6 +4,7 @@ class HomeController < ApplicationController
 
   def index
     @current = session[:userid].present?
+    @role = session[:role].present?
     @movies = Movie.select('movies.*, AVG(reviews.rating) AS average')
                 .left_joins(:reviews)
                 .group('movies.id')
@@ -30,6 +31,7 @@ render json: @movies
 
   def destroy
     session.delete(:userid)
+    session.delete(:role)
     redirect_to root_path
   end
 

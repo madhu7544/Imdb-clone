@@ -15,8 +15,12 @@
             alt="logo"
             class="home-logo"
         /></a>
-        <% if @current %>
+        <% if @current && @role%>
           <button class="new-movie" id="addMovie">New Movie</button>
+        <%else%>
+          <button id="addMovie" style="display: none;"></button>
+        <%end%>
+        <% if @current %>
           <div class="login-page-container">
            <button class="login-a" id="logout">Logout</button>
           </div>
@@ -72,7 +76,7 @@
                 <%= image_tag each.poster, class: "movie-image" %>
                 <div class="content">
                   <h3 class="movie-title"><%= each.title %></h3>
-                  <p class="movie-rating">Ratings: <%= each.average%></p>
+                  <p class="movie-rating">Ratings:  <%= number_with_precision(each.average, precision: 1) %></p>
                 </div>
               <% end %>
             </li>
