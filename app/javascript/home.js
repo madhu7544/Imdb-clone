@@ -69,21 +69,13 @@ selectOption.addEventListener("change", () => {
   const selectedOption = selectOption.value;
   const genreFilter = document.getElementById("genreFilter");
   const yearFilter = document.getElementById("yearFilter");
-  const selectGenre = document.getElementById("selectGenre");
-  const selectYear = document.getElementById("selectYear");
-
   if (selectedOption === "genre") {
     genreFilter.style.display = "block";
     yearFilter.style.display = "none";
-    selectGenre.addEventListener("change", () => {
-      const selectedGenre = selectGenre.value;
-    });
   } else if (selectedOption === "release-year") {
     genreFilter.style.display = "none";
     yearFilter.style.display = "block";
-    selectYear.addEventListener("change", () => {
-      const selectedYear = selectYear.value;
-    });
+    
   } else {
     genreFilter.style.display = "none";
     yearFilter.style.display = "none";

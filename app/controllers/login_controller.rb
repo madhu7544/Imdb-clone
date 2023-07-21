@@ -1,5 +1,5 @@
 class LoginController < ApplicationController
-  # protect_from_forgery prepend: true 
+  protect_from_forgery prepend: true 
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def index
@@ -8,7 +8,6 @@ class LoginController < ApplicationController
   def create
     @username = params[:email]
     @password = params[:password]
-    # render json: { username: username, password: password}
 
     user = User.find_by(email: @username)
 
