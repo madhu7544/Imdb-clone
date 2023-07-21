@@ -4,7 +4,9 @@ class HomeController < ApplicationController
 
   def index
     @current = session[:userid].present?
-    @movies = Movie.all 
+    @movies = Movie.select('movies.*, AVG(reviews.rating) AS average')
+                .left_joins(:reviews)
+                .group('movies.id')
   end
 
   def search
@@ -13,12 +15,14 @@ class HomeController < ApplicationController
     genre = params[:genre]
     rating = params[:rating]
     all = params[:all]
-    @movies = Movie.all
+    @movies = Movie.select('movies.*, AVG(reviews.rating) AS average')
+                .left_joins(:reviews)
+                .group('movies.id')
 
     @movies= @movies.where('title LIKE ?', "%#{title}%") if title.present?
     @movies= @movies.where('genre LIKE ?', "%#{genre}%") if genre.present?
     @movies= @movies.where('releasedate LIKE ?', "%#{year}%") if year.present?
-    @movies = @movies.order(rating: :desc) if rating.present?
+    @movies = @movies.order(average: :desc) if rating.present?
     render json: @movies
   end
 

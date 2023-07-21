@@ -52,7 +52,7 @@ searchForm.addEventListener("input", function (event) {
                 <img src="${movie.poster}" class="movie-image"/>
                 <div class="content">
                   <h3 class="movie-title">${movie.title}</h3>
-                  <p class="movie-rating">Ratings: ${movie.rating}</p>
+                  <p class="movie-rating">Ratings: ${movie.average}</p>
                 </div>
               </a>
             </li>
